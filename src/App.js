@@ -226,6 +226,7 @@ const App = () => {
     (e) => {
       if (e.code === 'KeyP' || e.code === 'Space') {
         setCanPlay(!canPlay)
+        setCurrentClip('')
       }
       if (e.code === 'KeyL') {
         changeDrumSet()
