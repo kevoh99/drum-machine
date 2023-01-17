@@ -1,38 +1,176 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+    --primary-color: #109D97;
+    --secondary-color: blueviolet;
+    --tertiary-color: #000000;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+html {
+    scroll-behavior: smooth;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    line-height: 1.6;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+#drum-machine {
+    height: 100vh;
+    background: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#outer-container {
+    padding: 0px;
+    width: 80%;
+    margin: auto;
+}
+
+#inner-container {
+    border: 3px solid yellow;
+    /* border: 3px solid #FAD02C; */
+    padding: 10px;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#left-col {
+    min-height: 200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 8px;
+}
+
+#right-col {
+    width: 100%;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+.drum-pad {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: #000;
+    border: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 3px 3px 5px 0px rgb(0, 0, 0);
+    -webkit-box-shadow: 3px 3px 5px 0px rgb(0, 0, 0);
+    -moz-box-shadow: 3px 3px 5px 0px rgb(0, 0, 0);
+}
+
+.power-btn,
+.bank-btn {
+    width: 50px;
+    border-radius: 10px;
+    height: 20px;
+    background: var(--secondary-color);
+    cursor: pointer;
+    /* background: linear-gradient(90deg, #FAD02C 0%, #FAD02C 50%, #000000 50%, #000000 80%); */
+    background: linear-gradient(90deg, yellow 0%, yellow 50%, #000000 50%, #000000 80%);
+    /* background: -webkit-linear-gradient(90deg, #FAD02C 0%, #FAD02C 50%, #000000 50%, #000000 80%); */
+    background: -webkit-linear-gradient(90deg, yellow 0%, yellow 50%, #000000 50%, #000000 80%);
+    /* background: -moz-linear-gradient(90deg, #FAD02C 0%, #FAD02C 50%, #000000 50%, #000000 80%); */
+    background: -moz-linear-gradient(90deg, yellow 0%, yellow 50%, #000000 50%, #000000 80%);
+}
+
+.power-btn.power-off,
+.bank-btn.bank-2 {
+    background: #000000;
+    /* background: linear-gradient(90deg, #000000 0%, #000000 50%, #fad02c 50%, #fad02c 80%); */
+    background: linear-gradient(90deg, #000000 0%, #000000 50%, yellow 50%, yellow 80%);
+    /* background: -webkit-linear-gradient(90deg, #000000 0%, #1b1a1a 50%, #fad02c 50%, #fad02c 80%); */
+    background: -webkit-linear-gradient(90deg, #000000 0%, #1b1a1a 50%, yellow 50%, yellow 80%);
+    /* background: -moz-linear-gradient(90deg, #000000 0%, #000000 50%, #fad02c 50%, #fad02c 80%); */
+    background: -moz-linear-gradient(90deg, #000000 0%, #000000 50%, yellow 50%, yellow 80%);
+}
+
+#display {
+    background-color: var(--primary-color);
+    padding: 5px 10px 30px 10px;
+    margin: 10px 0;
+    width: 100%;
+    height: 30px;
+}
+
+.phone-hide {
+    visibility: hidden;
+}
+
+#footer {
+    background: var(--primary-color);
+    font-size: smaller;
+    padding: 10px 5px;
+}
+
+#footer a {
+    text-decoration: none;
+    color: black;
+}
+
+@media(min-width: 350px) {
+    #outer-container {
+        width: 70%;
+    }
+}
+@media(min-width: 450px) {
+    #outer-container {
+        width: 60%;
+    }
+
+    #inner-container {
+        padding: 20px;
+    }
+
+    #display {
+        width: 80%;
+    }
+}
+@media(min-width: 600px) {
+    #outer-container {
+        width: 50%;
+    }
+}
+@media(min-width: 650px) {
+    #inner-container {
+        flex-direction: row;
+    }
+
+    #outer-container {
+        width: 90%;
+        max-width: 700px;
+        border-width: 5px;
+    }
+
+    #left-col {
+        min-height: 250px;
+    }
+
+    .phone-hide {
+        visibility: visible;
+    }
 }
